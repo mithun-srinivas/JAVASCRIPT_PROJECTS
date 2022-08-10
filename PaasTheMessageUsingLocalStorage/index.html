@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pass The Message</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Pass The Message Using Local Storage</h1>
+      <hr />
+      <input type="text" placeholder="Enter The Message" id="input" />
+      <div class="button">
+        <button onclick="passTheMessage()">Pass The Message</button>
+        <button onclick="clearAll()" style="background-color: #e21717">
+          Clear All
+        </button>
+      </div>
+      <hr />
+      <h2>Previous Passed Message :</h2>
+      <p id="output">No Messages Yet</p>
+    </div>
+  </body>
+  <script>
+    let input = document.getElementById("input");
+    let output = document.getElementById("output");
+    function passTheMessage() {
+      let message = input.value;
+      localStorage.setItem("Message", message);
+      location.reload();
+    }
+    function clearAll() {
+      localStorage.clear();
+      location.reload();
+    }
+    if (localStorage.Message) {
+      output.innerHTML = localStorage.Message;
+    }
+  </script>
+</html>
