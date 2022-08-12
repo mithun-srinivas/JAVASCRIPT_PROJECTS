@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Counter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Counter</h1>
+      <div class="counter">
+        <button onclick="decrease()">-</button>
+        <h1 id="number"></h1>
+        <button onclick="increase()">+</button>
+      </div>
+      <p id="error">Error</p>
+    </div>
+  </body>
+
+  <script>
+    document.getElementById("number").innerHTML = 0;
+    let count = 0;
+    function increase() {
+      count++;
+      update();
+    }
+    function decrease() {
+      if (count > 0) {
+        count--;
+        update();
+      } else {
+        document.getElementById("error").style.display = "block";
+        document.getElementById("error").innerHTML =
+          "Error! Counter cannot go below 0";
+      }
+    }
+    function update() {
+        document.getElementById("error").style.display = "none";
+      document.getElementById("number").innerHTML = count;
+    }
+  </script>
+</html>
